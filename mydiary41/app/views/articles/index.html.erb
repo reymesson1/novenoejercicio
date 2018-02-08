@@ -60,14 +60,20 @@
     <tr>
       <th>Title</th>
       <th>Text</th>
-      <th>Actions</th>
+      <th style="text-align:center" >Actions</th>
     </tr>
     
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
         <td><%= article.text %></td>
-        <td><%= link_to 'Show', article_path(article) %></td>
+        <td style="text-align:center;text-decoration:none">
+              <%= link_to '', article_path(article),  class:'fa fa-eye'  %>&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= link_to '', edit_article_path(article),  class:'fa fa-edit' %>&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= link_to '', article_path(article), class:'fa fa-trash',
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </table>
